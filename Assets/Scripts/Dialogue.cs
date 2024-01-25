@@ -7,12 +7,18 @@ public class Dialogue : MonoBehaviour
 {
     [SerializeField][TextArea] private string question_ita;
     [SerializeField][TextArea] private string question_eng;
+    [SerializeField] private Color color;
     [SerializeField] private Answer[] answers;
 
     public string GetQuestion()
     {
         // TODO: get in base alla lingua selezionata
         return question_ita;
+    }
+    
+    public Color GetColor()
+    {
+        return color;
     }
 
     public Answer[] GetAnswers()
@@ -27,7 +33,7 @@ public class Answer
     [SerializeField] private string text_ita;
     [SerializeField] private string text_eng;
     [SerializeField] private Color color;
-    [SerializeField] private UnityEvent action;
+    [SerializeField] private Dialogue otherDialogue;
 
     public string GetText()
     {
@@ -40,8 +46,15 @@ public class Answer
         return color;
     }
     
-    public UnityEvent GetAction()
+    public Dialogue GetOtherDialogue()
     {
-        return action;
+        return otherDialogue;
     }
 }
+
+// Ciao, ti stai divertendo?
+// 1. Si
+    // Anche io! Vuoi ballare?
+    // 1.1 
+    // 1.2 
+// 2. No

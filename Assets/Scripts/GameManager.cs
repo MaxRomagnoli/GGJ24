@@ -3,31 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using StarterAssets;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] FirstPersonController firstPersonController;
     [SerializeField] RaycastSomething raycastSomething;
+    [SerializeField] StarterAssetsInputs starterAssetsInputs;
 
     [Header("UI")]
     [SerializeField] GameObject interactPanel;
     [SerializeField] GameObject dialoguePanel;
+    [SerializeField] GameObject popUpPanel;
     [SerializeField] TextMeshProUGUI dialogueText;
     [SerializeField] Transform buttonPanel;
     [SerializeField] GameObject buttonPrefab;
-
-    private Dialogue dialogue;
 
     // Start is called before the first frame update
     void Start()
     {
         interactPanel.SetActive(false);
         dialoguePanel.SetActive(false);
+        popUpPanel.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         // TODO: Typing
+    }
+
+    public void ClosePopUp()
+    {
+        dialoguePanel.SetActive(true);
+        popUpPanel.SetActive(false);
     }
 
     public void SetInteractPanel(bool _set)
@@ -37,13 +46,27 @@ public class GameManager : MonoBehaviour
             interactPanel.SetActive(false);
             return;
         }
-        dialogue = _go.GetComponent<Dialogue>();
+
+        Dialogue dialogue = _go.GetComponent<Dialogue>();
+        SetDialogue(dialogue);
+
+        interactPanel.SetActive(_set);
+
+        starterAssetsInputs.cursorLocked = !_set;
+        starterAssetsInputs.cursorInputForLook = !_set;
+        firstPersonController.CanMove = !_set;
+    }
+
+    public void SetDialogue(Dialogue dialogue)
+    {
         if(dialogue == null) {
             interactPanel.SetActive(false);
+            dialoguePanel.SetActive(false);
             return;
         }
 
         dialogueText.text = dialogue.GetQuestion();
+        dialogueText.color = dialogue.GetColor();
 
         // Delete all old buttons
         foreach (Transform child in buttonPanel) {
@@ -62,12 +85,9 @@ public class GameManager : MonoBehaviour
             Image _image = _newButton.GetComponent<Image>();
             _image.color = _answer.GetColor();
 
-            // TODO: Change with another dialogue if present (this method doesnt work)
             Button _button = _newButton.GetComponent<Button>();
-            _button.onClick = _answer.GetAction() as UnityEngine.UI.Button.ButtonClickedEvent;
+            _button.onClick.AddListener(() => { this.SetDialogue(_answer.GetOtherDialogue()); } );
         }
-
-        interactPanel.SetActive(_set);
     }
 
     public bool GetCanStartDialogue()

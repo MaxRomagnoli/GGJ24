@@ -15,6 +15,7 @@ namespace StarterAssets
 		[SerializeField] private GameManager gameManager;
 
 		[Header("Player")]
+		public bool CanMove = true;
 		[Tooltip("Move speed of the character in m/s")]
 		public float MoveSpeed = 4.0f;
 		[Tooltip("Sprint speed of the character in m/s")]
@@ -156,6 +157,8 @@ namespace StarterAssets
 
 		private void Move()
 		{
+			if(!CanMove) { return; }
+
 			// set target speed based on move speed, sprint speed and if sprint is pressed
 			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
@@ -219,7 +222,6 @@ namespace StarterAssets
 				{
 					if(gameManager.GetCanStartDialogue())
 					{
-						this.enabled = false;
 						return;
 					}
 
