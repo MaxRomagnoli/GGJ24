@@ -218,9 +218,10 @@ namespace StarterAssets
 				}
 
 				// Jump
-				if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+				if ((_input.jump || gameManager.GetEuphoria() > 0) && _jumpTimeoutDelta <= 0.0f)
 				{
-					if(gameManager.InDialogue())
+					// This trigger the dialogue and stop player (InDialogue)
+					if(gameManager.GetEuphoria() <= 0 && gameManager.InDialogue())
 					{
 						_input.look = Vector2.zero;
 						_input.jump = false;

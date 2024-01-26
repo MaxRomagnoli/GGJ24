@@ -45,6 +45,7 @@ public class Answer
     [SerializeField] private string text_ita;
     [SerializeField] private string text_eng;
     [SerializeField] private bool persistent;
+    [SerializeField] private string specialFunction;
     [SerializeField] private Color color;
     [SerializeField] private Dialogue otherDialogue;
 
@@ -57,6 +58,11 @@ public class Answer
     public bool IsPersistent()
     {
         return persistent;
+    }
+
+    public string GetSpecialFunction()
+    {
+        return specialFunction;
     }
     
     public Color GetColor()

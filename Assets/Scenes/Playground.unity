@@ -759,8 +759,15 @@ MonoBehaviour:
   - text_ita: "S\xEC"
     text_eng: Yes
     persistent: 1
+    specialFunction: 
     color: {r: 0, g: 1, b: 0, a: 1}
     otherDialogue: {fileID: 0}
+--- !u!1 &232767438 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+    type: 3}
+  m_PrefabInstance: {fileID: 5393215579111688471}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &263902770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,12 +1035,13 @@ MonoBehaviour:
   pngName: 
   question_ita: Vuoi ballare con me?
   question_eng: 
-  font: {fileID: 12800000, guid: 8645b80340e9cca44b5940f103a28c72, type: 3}
+  font: {fileID: 12800000, guid: 895b8c8be9191e142ab67e325523a483, type: 3}
   color: {r: 0.54509807, g: 0.2627451, b: 0.1764706, a: 1}
   answers:
   - text_ita: "S\xEC"
     text_eng: Yes
     persistent: 1
+    specialFunction: 
     color: {r: 0, g: 1, b: 0, a: 1}
     otherDialogue: {fileID: 0}
 --- !u!1 &542508511
@@ -1142,6 +1150,7 @@ MonoBehaviour:
   - text_ita: Ok
     text_eng: Ok
     persistent: 1
+    specialFunction: 
     color: {r: 0, g: 1, b: 0, a: 1}
     otherDialogue: {fileID: 0}
 --- !u!1 &743427446
@@ -2090,6 +2099,13 @@ MonoBehaviour:
   - text_ita: "S\xEC"
     text_eng: Yes
     persistent: 1
+    specialFunction: 
+    color: {r: 0, g: 1, b: 0, a: 1}
+    otherDialogue: {fileID: 0}
+  - text_ita: Grazie
+    text_eng: Thanks
+    persistent: 0
+    specialFunction: 
     color: {r: 0, g: 1, b: 0, a: 1}
     otherDialogue: {fileID: 0}
 --- !u!136 &1329251000
@@ -2910,7 +2926,14 @@ MonoBehaviour:
   - text_ita: "S\xEC"
     text_eng: Yes
     persistent: 1
+    specialFunction: follow
     color: {r: 0.104001164, g: 1, b: 0, a: 1}
+    otherDialogue: {fileID: 0}
+  - text_ita: No
+    text_eng: No
+    persistent: 0
+    specialFunction: 
+    color: {r: 1, g: 0, b: 0, a: 1}
     otherDialogue: {fileID: 0}
 --- !u!114 &1694945566
 MonoBehaviour:
@@ -3029,16 +3052,19 @@ MonoBehaviour:
   - text_ita: "S\xEC"
     text_eng: Yes
     persistent: 1
+    specialFunction: 
     color: {r: 0, g: 1, b: 0, a: 1}
     otherDialogue: {fileID: 1712816536}
   - text_ita: No
     text_eng: No
     persistent: 0
+    specialFunction: 
     color: {r: 1, g: 0, b: 0, a: 1}
     otherDialogue: {fileID: 0}
   - text_ita: Balli veramente male
     text_eng: 
     persistent: 0
+    specialFunction: 
     color: {r: 1, g: 0, b: 0, a: 1}
     otherDialogue: {fileID: 0}
 --- !u!114 &1712816536
@@ -3062,11 +3088,13 @@ MonoBehaviour:
   - text_ita: "S\xEC"
     text_eng: Yes
     persistent: 1
+    specialFunction: 
     color: {r: 0, g: 1, b: 0, a: 1}
     otherDialogue: {fileID: 0}
   - text_ita: No
     text_eng: No
     persistent: 0
+    specialFunction: 
     color: {r: 1, g: 0, b: 0, a: 1}
     otherDialogue: {fileID: 0}
 --- !u!1 &1764214107
@@ -3295,7 +3323,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 5d28de3d9f0c97e489d9fe71c6658bc7, type: 3}
+    m_Font: {fileID: 12800000, guid: b171e03489c346441834d13c5206aaf0, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -3559,7 +3587,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 5393215579111688471}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 232767438}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
@@ -3742,6 +3770,7 @@ GameObject:
   - component: {fileID: 2069234912825803307}
   - component: {fileID: 1694945562}
   - component: {fileID: 1694945567}
+  - component: {fileID: 2069234912825803308}
   - component: {fileID: 1694945563}
   - component: {fileID: 1694945566}
   m_Layer: 10
@@ -3988,7 +4017,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 5393215579111688471}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 232767438}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e087ecce43ebbff45a1b360637807d93, type: 3}
@@ -4000,7 +4029,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 5393215579111688471}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 232767438}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55919ac34a26952479f3fc91f777b2fa, type: 3}
@@ -4823,7 +4852,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148666129889}
   m_LocalRotation: {x: -0, y: 0.9789492, z: -0, w: 0.20410399}
-  m_LocalPosition: {x: -5.842167, y: 0.00000023841858, z: 7.4243402}
+  m_LocalPosition: {x: -6.53, y: 0.00000023841858, z: 6.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4875,8 +4904,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149244113737}
-  m_LocalRotation: {x: -0, y: 0.9472017, z: -0, w: 0.32063824}
-  m_LocalPosition: {x: -6.1958055, y: 0, z: 8.90675}
+  m_LocalRotation: {x: -0, y: 0.8116755, z: -0, w: 0.58410865}
+  m_LocalPosition: {x: -5.95, y: 0, z: 8.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4884,7 +4913,7 @@ Transform:
   - {fileID: 5472622941170865261}
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 142.597, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 108.52, z: 0}
 --- !u!4 &543450653555090122
 Transform:
   m_ObjectHideFlags: 0
@@ -4989,8 +5018,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286843903218482276}
-  m_LocalRotation: {x: -0, y: 0.9577989, z: -0, w: 0.2874392}
-  m_LocalPosition: {x: -3.424, y: -0.00000023841858, z: 8.321}
+  m_LocalRotation: {x: -0, y: 0.7192869, z: -0, w: 0.6947132}
+  m_LocalPosition: {x: -5.85, y: -0.00000023841858, z: 4.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4998,7 +5027,7 @@ Transform:
   - {fileID: 4963126642612160074}
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 146.591, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 91.991, z: 0}
 --- !u!4 &707870175899982719
 Transform:
   m_ObjectHideFlags: 0
@@ -6715,7 +6744,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7487408773541828524}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -9.33, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7139,6 +7168,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &2069234912825803308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19588383830713292}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cdec9c10aa9c694381a4887a5ad3669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 232767438}
+  speed: 0
 --- !u!1 &2080307179199210363
 GameObject:
   m_ObjectHideFlags: 0
@@ -13925,6 +13968,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
         type: 3}
+      propertyPath: MoveSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: JumpHeight
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: JumpTimeout
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
+      propertyPath: SprintSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
+        type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 263902773}
@@ -15051,8 +15114,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6440233669382494092}
-  m_LocalRotation: {x: -0, y: 0.9756647, z: -0, w: -0.21926792}
-  m_LocalPosition: {x: -1.5040046, y: 0, z: 7.2769747}
+  m_LocalRotation: {x: -0, y: 0.7589502, z: -0, w: -0.65114874}
+  m_LocalPosition: {x: 1.776005, y: 0, z: 6.641049}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15060,7 +15123,7 @@ Transform:
   - {fileID: 2196573572224511394}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 205.332, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 261.25702, z: 0}
 --- !u!4 &5952537247107569181
 Transform:
   m_ObjectHideFlags: 0
@@ -15979,7 +16042,20 @@ MonoBehaviour:
   - text_ita: "S\xEC"
     text_eng: Yes
     persistent: 1
+    specialFunction: euphoria
     color: {r: 0, g: 1, b: 0, a: 1}
+    otherDialogue: {fileID: 0}
+  - text_ita: No
+    text_eng: No
+    persistent: 0
+    specialFunction: 
+    color: {r: 1, g: 0, b: 0, a: 1}
+    otherDialogue: {fileID: 0}
+  - text_ita: Non mi piacciono le droghe
+    text_eng: I don't like drugs
+    persistent: 0
+    specialFunction: 
+    color: {r: 1, g: 0, b: 0, a: 1}
     otherDialogue: {fileID: 0}
 --- !u!136 &6440233669382494094
 CapsuleCollider:
@@ -16737,17 +16813,19 @@ MonoBehaviour:
   pngName: Antonia
   question_ita: Cosa hai da guardare?
   question_eng: 
-  font: {fileID: 12800000, guid: 895b8c8be9191e142ab67e325523a483, type: 3}
+  font: {fileID: 12800000, guid: b171e03489c346441834d13c5206aaf0, type: 3}
   color: {r: 1, g: 0, b: 1, a: 1}
   answers:
   - text_ita: "S\xEC"
     text_eng: Yes
     persistent: 1
+    specialFunction: 
     color: {r: 0, g: 1, b: 0, a: 1}
     otherDialogue: {fileID: 0}
   - text_ita: No
     text_eng: No
     persistent: 0
+    specialFunction: 
     color: {r: 1, g: 0, b: 0, a: 1}
     otherDialogue: {fileID: 0}
 --- !u!4 &6829964501809351412
@@ -16995,14 +17073,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8335118915195705121}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0.5186475, z: -0, w: 0.8549882}
+  m_LocalPosition: {x: -0.0108392965, y: 0, z: -0.0065837195}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 626215500428519134}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -62.483, z: 0}
 --- !u!4 &7078722787174870247
 Transform:
   m_ObjectHideFlags: 0

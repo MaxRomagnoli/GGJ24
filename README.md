@@ -3,8 +3,8 @@
 ##  Theme: Make me Laugh
 
 ## Team: 
-- Max Romagnoli (main programmer)
-- Alessandro Spadini (programmer)
+- Max Romagnoli (main programmer and game designer)
+- Alessandro Spadini (game designer and level builder)
 - Miriam Mariani (level desiger)
 - Zibbo Dry Bone (music designer)
 
@@ -17,11 +17,12 @@
 - Svampita (from Mixamo)
 - Antonia (from Mixamo)
 - Bob (from Mixamo)
+- Igor (from Mixamo)
 - Spike (from Sketchfab)
 - Ghost (from Unity Asset Store)
 - Zibbo (custom model, used Baphomet Head asset for head)
 
-## Assets
+## Assets & Credits
 
 ### From Unity Assets Store
 - [Ghost character Free](https://assetstore.unity.com/packages/3d/characters/creatures/ghost-character-free-267003)
@@ -32,7 +33,7 @@
 - [Low Poly Fire](https://assetstore.unity.com/packages/vfx/particles/fire-explosions/low-poly-fire-244190)
 
 ### From Mixamo
-- TODO: write png used
+- Dance animations and segnalated characters
 
 ### From Sketchfab
 - [Giga Spike Brawl Stars](https://sketchfab.com/3d-models/giga-spike-brawl-stars-99e24d68c1644cefbc358666645dd5f9)

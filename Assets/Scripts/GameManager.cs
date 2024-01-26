@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField][TextArea] List<string> noMessages;
 
     private Dialogue currentDialogue;
+    private float euphoria = 0; // Seconds before stop euphoria
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +39,19 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // TODO: Typing
+        if(euphoria > 0) {
+            euphoria -= Time.deltaTime;
+        }
+    }
+
+    public float GetEuphoria()
+    {
+        return euphoria;
+    }
+
+    public void SetEuphoria(float _seconds)
+    {
+        euphoria = _seconds;
     }
 
     public void EnteredPNG()
@@ -136,7 +150,28 @@ public class GameManager : MonoBehaviour
                 // If is a no message, call the pop up
                 _button.onClick.AddListener(() => { this.OpenPopUp(); } );
             }
+
+            // Special functions to add in buttons
+            switch(_answer.GetSpecialFunction()) 
+            {
+                case "follow":
+                    _button.onClick.AddListener(() => { this.NewFollowerForPlayer(raycastSomething.GetHittedGameObject()); } );
+                    break;
+                case "euphoria":
+                    _button.onClick.AddListener(() => { this.SetEuphoria(10f); } );
+                    break;
+                default:
+                    // _button.onClick.AddListener(() => { this.function(); } );
+                    break;
+            }
         }
+    }
+
+    public void NewFollowerForPlayer(GameObject _obj)
+    {
+        Follower _follower = _obj.GetComponent<Follower>();
+        _follower.enabled = true;
+        _follower.AddSpeed(1f);
     }
 
     public bool InDialogue()
@@ -154,8 +189,8 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    public void SetDialoguePanel(bool _set)
+    /*public void SetDialoguePanel(bool _set)
     {
         dialoguePanel.SetActive(_set);
-    }
+    }*/
 }
