@@ -28,3 +28,4 @@
 
 ### From Sketchfab
 - [Giga Spike Brawl Stars](https://sketchfab.com/3d-models/giga-spike-brawl-stars-99e24d68c1644cefbc358666645dd5f9)
+- [Baphomet Head](https://sketchfab.com/3d-models/baphomet-head-73410032baca4cf5949a01890a354c2c)

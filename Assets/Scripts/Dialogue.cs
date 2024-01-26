@@ -5,15 +5,27 @@ using UnityEngine.Events;
 
 public class Dialogue : MonoBehaviour
 {
+    [SerializeField] private string pngName;
     [SerializeField][TextArea] private string question_ita;
     [SerializeField][TextArea] private string question_eng;
+    [SerializeField] private Font font;
     [SerializeField] private Color color;
     [SerializeField] private Answer[] answers;
+
+    public string GetPNGName()
+    {
+        return pngName;
+    }
 
     public string GetQuestion()
     {
         // TODO: get in base alla lingua selezionata
         return question_ita;
+    }
+    
+    public Font GetFont()
+    {
+        return font;
     }
     
     public Color GetColor()

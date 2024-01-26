@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using StarterAssets;
 
 public class GameManager : MonoBehaviour
@@ -14,13 +13,15 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] GameObject interactPanel;
     [SerializeField] GameObject dialoguePanel;
-    [SerializeField] GameObject popUpPanel;
-    [SerializeField] TextMeshProUGUI dialogueText;
+    [SerializeField] Text dialogueNameText;
+    [SerializeField] Text dialogueText;
     [SerializeField] Transform buttonPanel;
     [SerializeField] GameObject buttonPrefab;
+    [SerializeField] Font fallbackFont;
 
-    [Header("Messages that aren't yes")]
-    [SerializeField] TextMeshProUGUI noText;
+    [Header("Pop up")]
+    [SerializeField] GameObject popUpPanel;
+    [SerializeField] Text popUpText;
     [SerializeField][TextArea] List<string> noMessages;
 
     private Dialogue currentDialogue;
@@ -67,7 +68,7 @@ public class GameManager : MonoBehaviour
 
     public void OpenPopUp()
     {
-        noText.text = noMessages[0];
+        popUpText.text = noMessages[0];
         noMessages.RemoveAt(0);
         dialoguePanel.SetActive(false);
         popUpPanel.SetActive(true);
@@ -95,8 +96,17 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        Font _font = dialogue.GetFont();
+        if(_font == null) { _font = fallbackFont; }
+        Color _color = dialogue.GetColor();
+
         dialogueText.text = dialogue.GetQuestion();
-        dialogueText.color = dialogue.GetColor();
+        dialogueText.font = _font;
+        dialogueText.color = _color;
+
+        dialogueNameText.text = dialogue.GetPNGName();
+        dialogueNameText.font = _font;
+        dialogueNameText.color = _color;
 
         // Delete all old buttons
         foreach (Transform child in buttonPanel) {
