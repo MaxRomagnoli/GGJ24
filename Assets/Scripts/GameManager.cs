@@ -33,28 +33,36 @@ public class GameManager : MonoBehaviour
         // TODO: Typing
     }
 
-    public void ClosePopUp()
-    {
-        dialoguePanel.SetActive(true);
-        popUpPanel.SetActive(false);
-    }
-
-    public void SetInteractPanel(bool _set)
+    public void EnteredPNG()
     {
         GameObject _go = raycastSomething.GetHittedGameObject();
-        if(_go == null) {
-            interactPanel.SetActive(false);
-            return;
-        }
+        if(_go == null) { Debug.LogWarning("GameObject from Raycasting not found"); return; }
 
         Dialogue dialogue = _go.GetComponent<Dialogue>();
         SetDialogue(dialogue);
 
-        interactPanel.SetActive(_set);
+        interactPanel.SetActive(true);
+    }
 
-        starterAssetsInputs.cursorLocked = !_set;
+    public void ExitPNG()
+    {
+        interactPanel.SetActive(false);
+        dialoguePanel.SetActive(false);
+        popUpPanel.SetActive(false);
+    }
+
+    void lockPlayer(bool _set)
+    {
+        raycastSomething.enabled = !_set;
+        starterAssetsInputs.SetCursorState(!_set);
         starterAssetsInputs.cursorInputForLook = !_set;
         firstPersonController.CanMove = !_set;
+    }
+
+    public void ClosePopUp()
+    {
+        dialoguePanel.SetActive(true);
+        popUpPanel.SetActive(false);
     }
 
     public void SetDialogue(Dialogue dialogue)
@@ -62,6 +70,7 @@ public class GameManager : MonoBehaviour
         if(dialogue == null) {
             interactPanel.SetActive(false);
             dialoguePanel.SetActive(false);
+            lockPlayer(false);
             return;
         }
 
@@ -90,13 +99,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public bool GetCanStartDialogue()
+    public bool InDialogue()
     {
+        Debug.Log("InDialogue");
         if(interactPanel.activeInHierarchy)
         {
-            raycastSomething.enabled = false;
+            lockPlayer(true);
             interactPanel.SetActive(false);
             dialoguePanel.SetActive(true);
+            return true;
+        } else if(dialoguePanel.activeInHierarchy)
+        {
             return true;
         }
         return false;

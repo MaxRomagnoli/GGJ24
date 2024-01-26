@@ -16,6 +16,7 @@
 ## Assets
 
 ### From Unity Assets Store
+- [Ghost character Free](https://assetstore.unity.com/packages/3d/characters/creatures/ghost-character-free-267003)
 - [milky-way-skybox](https://assetstore.unity.com/packages/2d/textures-materials/milky-way-skybox-94001)
 - [RPG Poly Pack - Lite](https://assetstore.unity.com/packages/3d/environments/landscapes/rpg-poly-pack-lite-148410)
 - [Quirky Series - FREE Animals Pack](https://assetstore.unity.com/packages/3d/characters/animals/quirky-series-free-animals-pack-178235)

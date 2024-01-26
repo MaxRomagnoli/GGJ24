@@ -220,8 +220,10 @@ namespace StarterAssets
 				// Jump
 				if (_input.jump && _jumpTimeoutDelta <= 0.0f)
 				{
-					if(gameManager.GetCanStartDialogue())
+					if(gameManager.InDialogue())
 					{
+						_input.look = Vector2.zero;
+						_input.jump = false;
 						return;
 					}
 
