@@ -13,6 +13,14 @@
 - **Harmonius**: A music or rhythm game that is still playable without sound.
 - **Forrest Gump**: The character only has the "Yes" option in all dialogues with NPCs.
 
+## Characters
+- Svampita (from Mixamo)
+- Antonia (from Mixamo)
+- Bob (from Mixamo)
+- Spike (from Sketchfab)
+- Ghost (from Unity Asset Store)
+- Zibbo (custom model, used Baphomet Head asset for head)
+
 ## Assets
 
 ### From Unity Assets Store
