@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using StarterAssets;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] FirstPersonController firstPersonController;
     [SerializeField] RaycastSomething raycastSomething;
+    [SerializeField] EventSystem eventSystem;
     [SerializeField] StarterAssetsInputs starterAssetsInputs;
+    [SerializeField] LookAt playerLookAt;
 
     [Header("UI")]
     [SerializeField] GameObject interactPanel;
@@ -74,13 +77,20 @@ public class GameManager : MonoBehaviour
 
     void lockPlayer(bool _set)
     {
+        // Active or deactive raycast script when player locked
         raycastSomething.enabled = !_set;
+
+        // Lock other input mechanism or looking scripts
         starterAssetsInputs.SetCursorState(!_set);
         starterAssetsInputs.cursorInputForLook = !_set;
         firstPersonController.CanMove = !_set;
 
+        // Activate look at at PNG if present
         LookAt _lookAt = raycastSomething.GetHittedGameObject().GetComponent<LookAt>();
         if(_lookAt != null) { _lookAt.enabled = _set; }
+
+        // Focus on first button of buttonPanel
+        eventSystem.SetSelectedGameObject(buttonPanel.GetChild(0).gameObject);
     }
 
     public void OpenPopUp()
@@ -130,14 +140,16 @@ public class GameManager : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         }
 
-        // Instantiate answers with prefab button
         foreach(Answer _answer in dialogue.GetAnswers())
         {
             // Doesn't instantiate the button if is not persistent and there are no more messages for the pop up
             if(!_answer.IsPersistent() && noMessages.Count == 0) { continue; }
 
+            // Instantiate answers with prefab button
             GameObject _newButton = Instantiate(buttonPrefab, buttonPanel.position, Quaternion.identity);
-            _newButton.transform.SetParent(buttonPanel); // Set buttonPanel as parent
+
+            // Set buttonPanel as parent
+            _newButton.transform.SetParent(buttonPanel);
             
             Text _text = _newButton.GetComponentInChildren<Text>();
             _text.text = _answer.GetText();
@@ -146,6 +158,7 @@ public class GameManager : MonoBehaviour
             _image.color = _answer.GetColor();
 
             Button _button = _newButton.GetComponent<Button>();
+
             if(_answer.IsPersistent()) {
                 // Call another dialogue if present when button clicked
                 _button.onClick.AddListener(() => { this.SetDialogue(_answer.GetOtherDialogue()); } );
@@ -163,11 +176,44 @@ public class GameManager : MonoBehaviour
                 case "euphoria":
                     _button.onClick.AddListener(() => { this.SetEuphoria(10f); } );
                     break;
+                case "dance battle":
+                    _button.onClick.AddListener(() => { this.DanceBattle(raycastSomething.GetHittedGameObject(), _answer.GetOtherDialogue()); } );
+                    break;
                 default:
-                    // _button.onClick.AddListener(() => { this.function(); } );
                     break;
             }
         }
+    }
+
+    public void DanceBattle(GameObject _obj, Dialogue _finalDialogue)
+    {
+        StartCoroutine(DanceAroundPlayer( _obj, _finalDialogue));
+    }
+
+    private IEnumerator DanceAroundPlayer(GameObject _obj, Dialogue _finalDialogue)
+    {
+        Animator _animator = _obj.GetComponent<Animator>();
+        _animator.enabled = true;
+
+        LookAt _lookAt = _obj.GetComponent<LookAt>();
+        _lookAt.enabled = true;
+        
+        dialoguePanel.SetActive(false);
+
+        // Look at the dancing obj
+        playerLookAt.enabled = true;
+        playerLookAt.SetTarget(_obj.transform.GetChild(0));
+
+        // Rotate around for 10 seconds
+        RotateAround _rotateAround = _obj.GetComponent<RotateAround>();
+        _rotateAround.enabled = true;
+        yield return new WaitForSeconds(10f);
+        _rotateAround.enabled = false;
+
+        playerLookAt.enabled = false;
+
+        dialoguePanel.SetActive(true);
+        SetDialogue(_finalDialogue);
     }
 
     public void NewFollowerForPlayer(GameObject _obj)
@@ -188,15 +234,8 @@ public class GameManager : MonoBehaviour
             interactPanel.SetActive(false);
             dialoguePanel.SetActive(true);
             return true;
-        } else if(dialoguePanel.activeInHierarchy)
-        {
-            return true;
         }
-        return false;
-    }
 
-    /*public void SetDialoguePanel(bool _set)
-    {
-        dialoguePanel.SetActive(_set);
-    }*/
+        return dialoguePanel.activeInHierarchy;
+    }
 }

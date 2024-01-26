@@ -2,11 +2,15 @@
 
 ##  Theme: Make me Laugh
 
+## Game
+The game is a no sense umoristic FPS, where you have to interact with some strange characters to understand where you are and what you have to do.
+
 ## Team: 
 - [Max Romagnoli](https://www.maxromagnoli.com) (main programmer and game designer)
 - Alessandro Spadini (game designer and level builder)
 - Miriam Mariani (level desiger)
 - Zibbo Dry Bone (music designer)
+- arostaky (3D models)
 
 ## Diversifies
 
@@ -19,18 +23,20 @@
 ### Narrative
 - **Forrest Gump**: The character only has the "Yes" option in all dialogues with NPCs.
 
-## Characters
+## Characters (in order of appearance)
+- Spike (from Sketchfab)
 - Svampita (from Mixamo)
+- Robot Kyle (from Unity Asset Store)
 - Antonia (from Mixamo)
 - Bob (from Mixamo)
 - Igor (from Mixamo)
-- Spike (from Sketchfab)
 - Ghost (from Unity Asset Store)
 - Zibbo (custom model, used Baphomet Head asset for head)
 
 ## Assets & Credits
 
 ### From Unity Assets Store
+- [Robot Kyle | URP](https://assetstore.unity.com/packages/3d/characters/robots/robot-kyle-urp-4696)
 - [Ghost character Free](https://assetstore.unity.com/packages/3d/characters/creatures/ghost-character-free-267003)
 - [milky-way-skybox](https://assetstore.unity.com/packages/2d/textures-materials/milky-way-skybox-94001)
 - [RPG Poly Pack - Lite](https://assetstore.unity.com/packages/3d/environments/landscapes/rpg-poly-pack-lite-148410)
