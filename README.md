@@ -43,6 +43,7 @@ The game is a no sense umoristic FPS, where you have to interact with some stran
 - [Quirky Series - FREE Animals Pack](https://assetstore.unity.com/packages/3d/characters/animals/quirky-series-free-animals-pack-178235)
 - [Simple Collectibles Pack](https://assetstore.unity.com/packages/3d/props/simple-collectibles-pack-123092)
 - [Low Poly Fire](https://assetstore.unity.com/packages/vfx/particles/fire-explosions/low-poly-fire-244190)
+- [Furniture FREE](https://assetstore.unity.com/packages/3d/props/furniture/furniture-free-260522)
 
 ### From Mixamo
 - Dance animations and segnalated characters
