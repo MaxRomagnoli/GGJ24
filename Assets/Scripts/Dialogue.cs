@@ -32,6 +32,7 @@ public class Answer
 {
     [SerializeField] private string text_ita;
     [SerializeField] private string text_eng;
+    [SerializeField] private bool persistent;
     [SerializeField] private Color color;
     [SerializeField] private Dialogue otherDialogue;
 
@@ -39,6 +40,11 @@ public class Answer
     {
         // TODO: get in base alla lingua selezionata
         return text_ita;
+    }
+
+    public bool IsPersistent()
+    {
+        return persistent;
     }
     
     public Color GetColor()

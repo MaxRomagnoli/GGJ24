@@ -916,8 +916,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   question_ita: Ti droghi?
   question_eng: 
-  color: {r: 0, g: 1, b: 1, a: 0}
-  answers: []
+  color: {r: 0, g: 1, b: 1, a: 1}
+  answers:
+  - text_ita: "S\xEC"
+    text_eng: Yes
+    persistent: 1
+    color: {r: 0, g: 1, b: 0, a: 1}
+    otherDialogue: {fileID: 0}
 --- !u!1 &263902770
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,6 +991,11 @@ MonoBehaviour:
   buttonPanel: {fileID: 1457107764}
   buttonPrefab: {fileID: 8069712832464590249, guid: 40b8453943720c04085b7ba841df313f,
     type: 3}
+  noText: {fileID: 1142594014}
+  noMessages:
+  - "Questa opzione non \xE8 stata programmata per carenza di tempo"
+  - "Ti render\xF2 le cose facili: puoi premere solo si"
+  - "Ok, facciamo cos\xEC, spero che ti semplifichi un po' :)"
 --- !u!1001 &299259258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1690,7 +1700,12 @@ MonoBehaviour:
   question_ita: Vuoi ballare con me?
   question_eng: 
   color: {r: 0.54509807, g: 0.2627451, b: 0.1764706, a: 1}
-  answers: []
+  answers:
+  - text_ita: "S\xEC"
+    text_eng: Yes
+    persistent: 1
+    color: {r: 0, g: 1, b: 0, a: 1}
+    otherDialogue: {fileID: 0}
 --- !u!1001 &541042824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2181,10 +2196,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f62984a79ae324ba5b1603346ff851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  question_ita: Sei
+  question_ita: Sei pagato per lavorare, non per stare qui a divertirti
   question_eng: 
   color: {r: 0.7294118, g: 0.5921569, b: 0.36862746, a: 1}
-  answers: []
+  answers:
+  - text_ita: "S\xEC"
+    text_eng: Yes
+    persistent: 1
+    color: {r: 0, g: 1, b: 0, a: 1}
+    otherDialogue: {fileID: 0}
 --- !u!1 &743427446
 GameObject:
   m_ObjectHideFlags: 0
@@ -3102,10 +3122,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f62984a79ae324ba5b1603346ff851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  question_ita: 
+  question_ita: Bel pacco
   question_eng: 
   color: {r: 0, g: 1, b: 0, a: 1}
-  answers: []
+  answers:
+  - text_ita: "S\xEC"
+    text_eng: Yes
+    persistent: 1
+    color: {r: 0, g: 1, b: 0, a: 1}
+    otherDialogue: {fileID: 0}
 --- !u!136 &1329251000
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3809,7 +3834,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1487666842}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 263902773}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ClosePopUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1487666842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4126,6 +4163,7 @@ MonoBehaviour:
   answers:
   - text_ita: "S\xEC"
     text_eng: Yes
+    persistent: 1
     color: {r: 0.104001164, g: 1, b: 0, a: 1}
     otherDialogue: {fileID: 0}
 --- !u!114 &1694945566
@@ -4260,14 +4298,17 @@ MonoBehaviour:
   answers:
   - text_ita: "S\xEC"
     text_eng: Yes
+    persistent: 1
     color: {r: 0, g: 1, b: 0, a: 1}
     otherDialogue: {fileID: 1712816536}
   - text_ita: No
     text_eng: No
+    persistent: 0
     color: {r: 1, g: 0, b: 0, a: 1}
     otherDialogue: {fileID: 0}
   - text_ita: Balli veramente male
     text_eng: 
+    persistent: 0
     color: {r: 1, g: 0, b: 0, a: 1}
     otherDialogue: {fileID: 0}
 --- !u!114 &1712816536
@@ -4288,10 +4329,12 @@ MonoBehaviour:
   answers:
   - text_ita: "S\xEC"
     text_eng: Yes
+    persistent: 1
     color: {r: 0, g: 1, b: 0, a: 1}
     otherDialogue: {fileID: 0}
   - text_ita: No
     text_eng: No
+    persistent: 0
     color: {r: 1, g: 0, b: 0, a: 1}
     otherDialogue: {fileID: 0}
 --- !u!1 &1764214107
