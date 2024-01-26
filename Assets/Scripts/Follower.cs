@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Follower : MonoBehaviour
@@ -16,6 +14,5 @@ public class Follower : MonoBehaviour
     void Update()
     {
         this.transform.position += (target.transform.position - this.transform.position).normalized * speed * Time.deltaTime;
-        // TODO: Look
     }
 }

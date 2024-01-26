@@ -78,6 +78,9 @@ public class GameManager : MonoBehaviour
         starterAssetsInputs.SetCursorState(!_set);
         starterAssetsInputs.cursorInputForLook = !_set;
         firstPersonController.CanMove = !_set;
+
+        LookAt _lookAt = raycastSomething.GetHittedGameObject().GetComponent<LookAt>();
+        if(_lookAt != null) { _lookAt.enabled = _set; }
     }
 
     public void OpenPopUp()
@@ -169,6 +172,9 @@ public class GameManager : MonoBehaviour
 
     public void NewFollowerForPlayer(GameObject _obj)
     {
+        LookAt _lookAt = _obj.GetComponent<LookAt>();
+        _lookAt.enabled = true;
+
         Follower _follower = _obj.GetComponent<Follower>();
         _follower.enabled = true;
         _follower.AddSpeed(1f);

@@ -3,14 +3,20 @@
 ##  Theme: Make me Laugh
 
 ## Team: 
-- Max Romagnoli (main programmer and game designer)
+- [Max Romagnoli](https://www.maxromagnoli.com) (main programmer and game designer)
 - Alessandro Spadini (game designer and level builder)
 - Miriam Mariani (level desiger)
 - Zibbo Dry Bone (music designer)
 
 ## Diversifies
+
+### Sponsored
 - **Sharing is caring (Sponsored by Github)**: Share the source code for your submission in a public GitHub repository and list the URL on your submission page.
+
+### Accessibility
 - **Harmonius**: A music or rhythm game that is still playable without sound.
+
+### Narrative
 - **Forrest Gump**: The character only has the "Yes" option in all dialogues with NPCs.
 
 ## Characters
