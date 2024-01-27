@@ -10,7 +10,7 @@ The game is a no sense umoristic FPS, where you have to interact with some stran
 - Alessandro Spadini (game designer and level builder)
 - Miriam Mariani (level desiger)
 - Zibbo Dry Bone (music designer)
-- arostaky (3D models)
+- arostaky (3D model of Zibbo)
 
 ## Diversifies
 
@@ -45,6 +45,7 @@ The game is a no sense umoristic FPS, where you have to interact with some stran
 - [Simple Collectibles Pack](https://assetstore.unity.com/packages/3d/props/simple-collectibles-pack-123092)
 - [Low Poly Fire](https://assetstore.unity.com/packages/vfx/particles/fire-explosions/low-poly-fire-244190)
 - [Furniture FREE](https://assetstore.unity.com/packages/3d/props/furniture/furniture-free-260522)
+- [Waste Can PBR](https://assetstore.unity.com/packages/3d/props/waste-can-pbr-224775)
 
 ### From Mixamo
 - Dance animations and segnalated characters
