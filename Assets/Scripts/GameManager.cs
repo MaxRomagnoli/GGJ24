@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] EventSystem eventSystem;
     [SerializeField] StarterAssetsInputs starterAssetsInputs;
     [SerializeField] LookAt playerLookAt;
+    [SerializeField] AudioSource soundtrack;
 
     [Header("UI")]
     [SerializeField] GameObject interactPanel;
@@ -179,10 +180,19 @@ public class GameManager : MonoBehaviour
                 case "dance battle":
                     _button.onClick.AddListener(() => { this.DanceBattle(raycastSomething.GetHittedGameObject(), _answer.GetOtherDialogue()); } );
                     break;
+                case "explode":
+                    _button.onClick.AddListener(() => { this.Explode(); } );
+                    break;
                 default:
                     break;
             }
         }
+    }
+
+    public void Explode()
+    {
+        // TODO: Animation of exploding PNG
+        soundtrack.volume = 1f;
     }
 
     public void DanceBattle(GameObject _obj, Dialogue _finalDialogue)
