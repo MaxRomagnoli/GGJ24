@@ -36,6 +36,7 @@ The game is a no sense umoristic FPS, where you have to interact with some stran
 ## Assets & Credits
 
 ### From Unity Assets Store
+- [Dance Animations FREE](https://assetstore.unity.com/packages/3d/animations/dance-animations-free-161313)
 - [Robot Kyle | URP](https://assetstore.unity.com/packages/3d/characters/robots/robot-kyle-urp-4696)
 - [Ghost character Free](https://assetstore.unity.com/packages/3d/characters/creatures/ghost-character-free-267003)
 - [milky-way-skybox](https://assetstore.unity.com/packages/2d/textures-materials/milky-way-skybox-94001)
