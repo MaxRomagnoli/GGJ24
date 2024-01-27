@@ -24,13 +24,15 @@ The game is a no sense umoristic FPS, where you have to interact with some stran
 - **Forrest Gump**: The character only has the "Yes" option in all dialogues with NPCs.
 
 ## Characters (in order of appearance)
-- Spike (from Sketchfab)
-- Svampita (from Mixamo)
-- Robot Kyle (from Unity Asset Store)
 - Antonia (from Mixamo)
 - Bob (from Mixamo)
-- Igor (from Mixamo)
 - Ghost (from Unity Asset Store)
+- Igor (from Mixamo)
+- Jerry (from Mixamo)
+- Robot Kyle (from Unity Asset Store)
+- Spike (from Sketchfab)
+- Svampita (from Mixamo)
+- Waste Can (form Unity Asset Store)
 - Zibbo (custom model, used Baphomet Head asset for head)
 
 ## Assets & Credits

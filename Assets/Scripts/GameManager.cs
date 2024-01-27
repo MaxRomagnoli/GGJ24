@@ -87,8 +87,12 @@ public class GameManager : MonoBehaviour
         firstPersonController.CanMove = !_set;
 
         // Activate look at at PNG if present
-        LookAt _lookAt = raycastSomething.GetHittedGameObject().GetComponent<LookAt>();
-        if(_lookAt != null) { _lookAt.enabled = _set; }
+        GameObject _go = raycastSomething.GetHittedGameObject();
+        if(_go != null)
+        {
+            LookAt _lookAt = _go.GetComponent<LookAt>();
+            if(_lookAt != null) { _lookAt.enabled = _set; }
+        }
 
         // Focus on first button of buttonPanel
         eventSystem.SetSelectedGameObject(buttonPanel.GetChild(0).gameObject);
@@ -229,23 +233,33 @@ public class GameManager : MonoBehaviour
     public void NewFollowerForPlayer(GameObject _obj)
     {
         LookAt _lookAt = _obj.GetComponent<LookAt>();
-        _lookAt.enabled = true;
+        if(_lookAt) { _lookAt.enabled = true; }
 
         Follower _follower = _obj.GetComponent<Follower>();
-        _follower.enabled = true;
-        _follower.AddSpeed(1f);
+        if(_follower) {
+            _follower.enabled = true;
+            _follower.AddSpeed(1f);
+        }
+
+        AiFollower _aiFollower = _obj.GetComponent<AiFollower>();
+        if(_aiFollower) { _aiFollower.enabled = true; }
     }
 
     public bool InDialogue()
     {
         if(interactPanel.activeInHierarchy)
         {
-            lockPlayer(true);
-            interactPanel.SetActive(false);
-            dialoguePanel.SetActive(true);
+            OpenDialogue();
             return true;
         }
 
         return dialoguePanel.activeInHierarchy;
+    }
+
+    public void OpenDialogue()
+    {
+        lockPlayer(true);
+        interactPanel.SetActive(false);
+        dialoguePanel.SetActive(true);
     }
 }
