@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Font fallbackFont;
 
     [Header("Pause menu")]
+    [SerializeField] GameObject otherPanels;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject resumeButton;
 
@@ -74,6 +75,7 @@ public class GameManager : MonoBehaviour
     public void PauseMenu()
     {
         LockPlayer(true);
+        otherPanels.SetActive(false);
         pauseMenu.SetActive(true);
         eventSystem.SetSelectedGameObject(resumeButton);
     }
@@ -81,6 +83,7 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         LockPlayer(false);
+        otherPanels.SetActive(true);
         pauseMenu.SetActive(false);
     }
 
@@ -260,7 +263,7 @@ public class GameManager : MonoBehaviour
         Animator _animator = _obj.GetComponent<Animator>();
         _animator.enabled = true;
 
-        LookAt _lookAt = _obj.GetComponent<LookAt>();
+        LookAt _lookAt = _obj.GetComponentInChildren<LookAt>();
         _lookAt.enabled = true;
         
         dialoguePanel.SetActive(false);
@@ -269,11 +272,11 @@ public class GameManager : MonoBehaviour
         playerLookAt.enabled = true;
         playerLookAt.SetTarget(_obj.transform.GetChild(0));
 
+        AiFollower _follower = _obj.GetComponent<AiFollower>();
+        _follower.enabled = true;
+
         // Rotate around for 10 seconds
-        RotateAround _rotateAround = _obj.GetComponent<RotateAround>();
-        _rotateAround.enabled = true;
         yield return new WaitForSeconds(10f);
-        _rotateAround.enabled = false;
 
         playerLookAt.enabled = false;
 
