@@ -50,7 +50,7 @@ The game is a no sense umoristic FPS, where you have to interact with some stran
 - [Waste Can PBR](https://assetstore.unity.com/packages/3d/props/waste-can-pbr-224775)
 
 ### From Mixamo
-- Dance animations and segnalated characters
+- Segnalated characters
 
 ### From Sketchfab
 - [Giga Spike Brawl Stars](https://sketchfab.com/3d-models/giga-spike-brawl-stars-99e24d68c1644cefbc358666645dd5f9)

@@ -223,8 +223,6 @@ namespace StarterAssets
 					// This trigger the dialogue and stop player (InDialogue)
 					if(gameManager.GetEuphoria() <= 0 && gameManager.InDialogue())
 					{
-						_input.look = Vector2.zero;
-						_input.jump = false;
 						return;
 					}
 

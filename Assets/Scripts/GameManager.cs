@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEditor;
 using StarterAssets;
 
 public class GameManager : MonoBehaviour
@@ -23,6 +24,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject buttonPrefab;
     [SerializeField] Font fallbackFont;
 
+    [Header("Pause menu")]
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject resumeButton;
+
     [Header("Pop up")]
     [SerializeField] GameObject popUpPanel;
     [SerializeField] Text popUpText;
@@ -35,6 +40,7 @@ public class GameManager : MonoBehaviour
 
     private Dialogue currentDialogue;
     private float euphoria = 0; // Seconds before stop euphoria
+    private bool inPauseMenu = false;
 
     // Start is called before the first frame update
     void Start()
@@ -42,15 +48,49 @@ public class GameManager : MonoBehaviour
         interactPanel.SetActive(false);
         dialoguePanel.SetActive(false);
         popUpPanel.SetActive(false);
+        pauseMenu.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        // TODO: Typing
+        // If euphoria, jump for 10 seconds
         if(euphoria > 0) {
             euphoria -= Time.deltaTime;
         }
+
+        // If esc is triggered
+        if(starterAssetsInputs.esc) {
+            Debug.Log("Esc pressed");
+            starterAssetsInputs.esc = false;
+            if(!inPauseMenu) {
+                PauseMenu();
+            } else {
+                ResumeGame();
+            }
+        }
+    }
+
+    public void PauseMenu()
+    {
+        LockPlayer(true);
+        pauseMenu.SetActive(true);
+        eventSystem.SetSelectedGameObject(resumeButton);
+    }
+
+    public void ResumeGame()
+    {
+        LockPlayer(false);
+        pauseMenu.SetActive(false);
+    }
+
+    public void QuitGame()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 
     public float GetEuphoria()
@@ -81,7 +121,7 @@ public class GameManager : MonoBehaviour
         popUpPanel.SetActive(false);
     }
 
-    void lockPlayer(bool _set)
+    void LockPlayer(bool _set)
     {
         // Active or deactive raycast script when player locked
         raycastSomething.enabled = !_set;
@@ -89,6 +129,8 @@ public class GameManager : MonoBehaviour
         // Lock other input mechanism or looking scripts
         starterAssetsInputs.SetCursorState(!_set);
         starterAssetsInputs.cursorInputForLook = !_set;
+        starterAssetsInputs.look = Vector2.zero;
+        starterAssetsInputs.jump = false;
         firstPersonController.CanMove = !_set;
 
         // Activate look at at PNG if present
@@ -129,7 +171,7 @@ public class GameManager : MonoBehaviour
         if(dialogue == null) {
             interactPanel.SetActive(false);
             dialoguePanel.SetActive(false);
-            lockPlayer(false);
+            LockPlayer(false);
             return;
         }
 
@@ -267,7 +309,7 @@ public class GameManager : MonoBehaviour
 
     public void OpenDialogue()
     {
-        lockPlayer(true);
+        LockPlayer(true);
         interactPanel.SetActive(false);
         dialoguePanel.SetActive(true);
     }
