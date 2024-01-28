@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEditor;
 using StarterAssets;
 
@@ -25,9 +26,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] Font fallbackFont;
 
     [Header("Pause menu")]
+    [SerializeField] Text pauseMenuText;
     [SerializeField] GameObject otherPanels;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject resumeButton;
+    [SerializeField] GameObject restartButton;
+
+    [Header("Game over menu")]
+    [SerializeField] GameObject gameOverPanel;
+    [SerializeField] string gameOverMessage = "Sei morto";
+    [SerializeField] float euphoriaEffect = 5f;
+    [SerializeField] int drugsBeforeDie = 3;
 
     [Header("Pop up")]
     [SerializeField] GameObject popUpPanel;
@@ -41,7 +50,6 @@ public class GameManager : MonoBehaviour
 
     private Dialogue currentDialogue;
     private float euphoria = 0; // Seconds before stop euphoria
-    private bool inPauseMenu = false;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +58,7 @@ public class GameManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         popUpPanel.SetActive(false);
         pauseMenu.SetActive(false);
+        gameOverPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -64,7 +73,7 @@ public class GameManager : MonoBehaviour
         if(starterAssetsInputs.esc) {
             Debug.Log("Esc pressed");
             starterAssetsInputs.esc = false;
-            if(!inPauseMenu) {
+            if(!pauseMenu.activeInHierarchy) {
                 PauseMenu();
             } else {
                 ResumeGame();
@@ -82,9 +91,9 @@ public class GameManager : MonoBehaviour
 
     public void ResumeGame()
     {
-        LockPlayer(false);
         otherPanels.SetActive(true);
         pauseMenu.SetActive(false);
+        if(!dialoguePanel.activeInHierarchy) { LockPlayer(false); }
     }
 
     public void QuitGame()
@@ -96,6 +105,11 @@ public class GameManager : MonoBehaviour
         #endif
     }
 
+    public void Restart()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public float GetEuphoria()
     {
         return euphoria;
@@ -103,7 +117,20 @@ public class GameManager : MonoBehaviour
 
     public void SetEuphoria(float _seconds)
     {
-        euphoria = _seconds;
+        drugsBeforeDie -= 1;
+        if(drugsBeforeDie <= 0) {
+            Die();
+        } else {
+            euphoria = _seconds;
+        }
+    }
+
+    private void Die()
+    {
+        pauseMenuText.text = gameOverMessage;
+        gameOverPanel.SetActive(true);
+        resumeButton.SetActive(false);
+        PauseMenu();
     }
 
     public void EnteredPNG()
@@ -229,7 +256,7 @@ public class GameManager : MonoBehaviour
                     _button.onClick.AddListener(() => { this.NewFollowerForPlayer(raycastSomething.GetHittedGameObject()); } );
                     break;
                 case "euphoria":
-                    _button.onClick.AddListener(() => { this.SetEuphoria(10f); } );
+                    _button.onClick.AddListener(() => { this.SetEuphoria(euphoriaEffect); } );
                     break;
                 case "dance battle":
                     _button.onClick.AddListener(() => { this.DanceBattle(raycastSomething.GetHittedGameObject(), _answer.GetOtherDialogue()); } );
