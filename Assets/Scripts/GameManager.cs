@@ -28,6 +28,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text popUpText;
     [SerializeField][TextArea] List<string> noMessages;
 
+    [Header("GuyWhoExplode")]
+    [SerializeField] GameObject guyWhoExplodeLight;
+    [SerializeField] ParticleSystem guyWhoExplodeParticles;
+    [SerializeField] GameObject[] guyWhoExplodeParts;
+
     private Dialogue currentDialogue;
     private float euphoria = 0; // Seconds before stop euphoria
 
@@ -195,8 +200,12 @@ public class GameManager : MonoBehaviour
 
     public void Explode()
     {
-        // TODO: Animation of exploding PNG
         soundtrack.volume = 1f;
+        foreach(GameObject _part in guyWhoExplodeParts) {
+            _part.SetActive(false);
+            guyWhoExplodeLight.SetActive(true);
+            guyWhoExplodeParticles.Play();
+        }
     }
 
     public void DanceBattle(GameObject _obj, Dialogue _finalDialogue)
