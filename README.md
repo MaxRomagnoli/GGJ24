@@ -1,6 +1,8 @@
 # Global Game Jam 2024
 
-##  Theme: Make me Laugh
+## Theme: Make me Laugh
+
+## Title: [Lost Airlines](https://v3.globalgamejam.org/2021/games/lost-airlines-0)
 
 ## Game
 The game is a no sense umoristic FPS, where you have to interact with some strange characters to understand where you are and what you have to do.
